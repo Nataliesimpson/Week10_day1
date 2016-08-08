@@ -1,6 +1,6 @@
 public class Athlete{
   //instance variables//
-  //Defining instance variables as private protects against unwanted access from outside// //We define all instance variables as private and create public getters and setters when needed//
+  //Defining instance variables as private protects against unwanted access from outside// //We define all instance variables as private and create public getters and setters when needed to access from somewhere else//
   private String name;
   private int age;
   private String runningbuddy;
@@ -16,7 +16,7 @@ public Athlete(String name, int age, String runningbuddy){
   this.name = name;
   this.age = age;
   this.runningbuddy = runningbuddy;
-  //we give the array a size, this is populated with 10 null values and can't be exceeded//
+  //we give the array a size, this is populated with the specified number of null values and can't be exceeded i.e. 10 in this case//
   this.hydration = new Water[10];
 }
 
@@ -36,9 +36,11 @@ public String getRunningBuddy(){
 public int hydrationCount(){
   int count = 0;
 
+  //looping over hydration collection//
   for (Water water : hydration){
     //we only want to count entries which are not null//
     if (water != null){
+      //we are adding all values that are not null only//
       count++;
     }
   }
@@ -47,6 +49,7 @@ public int hydrationCount(){
 
 //can only add an item to an array in Java by using an index position//
 //in order to be able to add more than one item, we have to use a counter so we know where the next water should be added//
+//we already have a counter in our hydrationCount method//
 
 public void drink(Water water){
   if (hydrationMax()){
